@@ -1,12 +1,17 @@
 package com.ubs.opsit.interviews;
 
 import org.junit.Test;
-
+import org.junit.rules.ExpectedException;
+import org.junit.Rule;
 import com.ubs.opsit.interviews.clock.BerlinClock;
 import static org.junit.Assert.*;
 
 public class BerlinClockUnitTest {
 
+	@Rule
+	public final ExpectedException exception = ExpectedException.none();
+
+	
 	/*
 	 * set clock at 00:00:00
 	 */
@@ -20,6 +25,7 @@ public class BerlinClockUnitTest {
 		assertArrayEquals(expected, clock.getLampsColor());
 	}
 
+	
 	/*
 	 * set clock at 24:00:00
 	 */
@@ -28,11 +34,11 @@ public class BerlinClockUnitTest {
 		char[][] expected = { { 'Y' }, { 'R', 'R', 'R', 'R' }, { 'R', 'R', 'R', 'R' },
 				{ 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O' }, { 'O', 'O', 'O', 'O' } };
 
-		BerlinClock clock = new BerlinClock().setHours(24).setMinutes(0).setSeconds(0);
+		BerlinClock clock = new BerlinClock("24:00:00");
 		assertArrayEquals(expected, clock.getLampsColor());
-
 	}
 
+	
 	/*
 	 * set clock at 13:17:01
 	 */
@@ -41,10 +47,11 @@ public class BerlinClockUnitTest {
 		char[][] expected = { { 'O' }, { 'R', 'R', 'O', 'O' }, { 'R', 'R', 'R', 'O' },
 				{ 'Y', 'Y', 'R', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O' }, { 'Y', 'Y', 'O', 'O' } };
 		
-		BerlinClock clock = new BerlinClock().setHours(13).setMinutes(17).setSeconds(1);
+		BerlinClock clock = new BerlinClock("13:17:01");
 		assertArrayEquals(expected, clock.getLampsColor());
 	}
 
+	
 	/*
 	 * set clock at 23:59:59
 	 */
@@ -57,4 +64,36 @@ public class BerlinClockUnitTest {
 		assertArrayEquals(expected, clock.getLampsColor());
 	}
 
+	
+	/*
+	 * invalid time - negative hours
+	 */
+	@Test
+	public void setTimeInvalidHours() {
+		exception.expect(IllegalArgumentException.class);
+		exception.expectMessage("Invalid hours number. The value should be within the range 0 - 24");
+		new BerlinClock().setHours(-1);
+	}
+
+	
+	/*
+	 *  invalid time - number of minutes exceed allowed number
+	 */
+	@Test
+	public void setTimeInvalidMinutes() {
+		exception.expect(IllegalArgumentException.class);
+		exception.expectMessage("Invalid minutes number. The value should be within the range 0 - 59");
+		new BerlinClock().setMinutes(60);
+	}
+
+	
+	/*
+	 *  invalid time - negative hours 
+	 */
+	@Test
+	public void setTimeNegativeSeconds() {
+		exception.expect(IllegalArgumentException.class);
+		exception.expectMessage("Invalid seconds number. The value should be within the range 0 - 60");
+		new BerlinClock().setSeconds(-1);
+	}
 }
