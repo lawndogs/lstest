@@ -2,6 +2,8 @@ package com.ubs.opsit.interviews;
 
 import org.junit.Test;
 
+import steps.BerlinClockSteps;
+
 import static com.ubs.opsit.interviews.support.BehaviouralTestEmbedder.aBehaviouralTestRunner;
 
 /**
@@ -13,7 +15,7 @@ public class BerlinClockScenario {
     @Test
     public void berlinClockAcceptanceTests() throws Exception {
         aBehaviouralTestRunner()
-                .usingStepsFrom(this)
+                .usingStepsFrom(new BerlinClockSteps())
                 .withStory("berlin-clock.story")
                 .run();
     }
