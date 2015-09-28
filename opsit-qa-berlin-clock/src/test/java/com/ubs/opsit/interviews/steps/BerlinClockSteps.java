@@ -1,4 +1,4 @@
-package steps;
+package com.ubs.opsit.interviews.steps;
 
 import static org.junit.Assert.assertArrayEquals;
 import org.jbehave.core.annotations.Given;

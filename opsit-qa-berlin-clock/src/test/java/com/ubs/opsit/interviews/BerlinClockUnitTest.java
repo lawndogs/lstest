@@ -13,7 +13,7 @@ public class BerlinClockUnitTest {
 
 	
 	/*
-	 * set clock at 00:00:00
+	 * Set clock at 00:00:00
 	 */
 	@Test
 	public void setTimeMidnight00() {
@@ -27,7 +27,7 @@ public class BerlinClockUnitTest {
 
 	
 	/*
-	 * set clock at 24:00:00
+	 * Set clock at 24:00:00
 	 */
 	@Test
 	public void setTimeMidnight24() {
@@ -40,7 +40,7 @@ public class BerlinClockUnitTest {
 
 	
 	/*
-	 * set clock at 13:17:01
+	 * Set clock at 13:17:01
 	 */
 	@Test
 	public void setTimeAfterNoon() {
@@ -53,7 +53,7 @@ public class BerlinClockUnitTest {
 
 	
 	/*
-	 * set clock at 23:59:59
+	 * Set clock at 23:59:59
 	 */
 	@Test
 	public void setTimeBeforeMidnight() {
@@ -66,9 +66,9 @@ public class BerlinClockUnitTest {
 
 	
 	/*
-	 * invalid time - negative hours
+	 * Invalid time - negative hours
 	 */
-	@Test
+	@Test 
 	public void setTimeInvalidHours() {
 		exception.expect(IllegalArgumentException.class);
 		exception.expectMessage("Invalid hours number. The value should be within the range 0 - 24");
@@ -77,7 +77,7 @@ public class BerlinClockUnitTest {
 
 	
 	/*
-	 *  invalid time - number of minutes exceed allowed number
+	 *  Invalid time - number of minutes exceed allowed number
 	 */
 	@Test
 	public void setTimeInvalidMinutes() {
@@ -88,7 +88,7 @@ public class BerlinClockUnitTest {
 
 	
 	/*
-	 *  invalid time - negative hours 
+	 *  Invalid time - negative hours 
 	 */
 	@Test
 	public void setTimeNegativeSeconds() {

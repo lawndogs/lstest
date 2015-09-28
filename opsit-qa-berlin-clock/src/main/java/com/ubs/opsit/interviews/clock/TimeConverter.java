@@ -1,6 +1,11 @@
 package com.ubs.opsit.interviews.clock;
 
 class TimeConverter {
+	
+	/*
+	 * Parses a string object, e.g. time = "13:17:01" and extracts Hours=13, Minutes=17 and Seconds=1 
+	 */
+	
 	private String time;
 	public TimeConverter(String time) {
 		this.time = time;

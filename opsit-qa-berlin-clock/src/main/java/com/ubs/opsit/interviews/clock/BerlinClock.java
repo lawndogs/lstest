@@ -24,6 +24,13 @@ public class BerlinClock {
 		setSeconds(seconds);
 	}
 
+	
+	/**
+	 * Sets number of hours to be displayed in Berlin Clock dial/clock face
+	 * 
+	 * @param   number of hours to be displayed
+	 * @return  reference to the current Berlin Clock object
+	 */
 	public BerlinClock setHours(int hours) {
         if (hours < 0 || hours > 24) {
         	throw new IllegalArgumentException("Invalid hours number. The value should be within the range 0 - 24");
@@ -47,6 +54,13 @@ public class BerlinClock {
 		return this;
 	}
 
+	
+	/**
+	 * Sets minutes of hours to be displayed in Berlin Clock dial/clock face
+	 * 
+	 * @param   number of minutes to be displayed
+	 * @return  reference to the current Berlin Clock object
+	 */
 	public BerlinClock setMinutes(int minutes) {
 		if (minutes < 0 || minutes > 59) {
         	throw new IllegalArgumentException("Invalid minutes number. The value should be within the range 0 - 59");
@@ -73,7 +87,14 @@ public class BerlinClock {
 		}
 		return this;
 	}
-
+	
+	
+	/**
+	 * Sets seconds status to be displayed in Berlin Clock dial/clock face
+	 * 
+	 * @param   number of seconds
+	 * @return  reference to the current Berlin Clock object
+	 */
 	public BerlinClock setSeconds(int seconds) {
 		if (seconds < 0 || seconds > 60) {
         	throw new IllegalArgumentException("Invalid seconds number. The value should be within the range 0 - 60");
@@ -87,13 +108,29 @@ public class BerlinClock {
 		return this;
 	}
 	
+	
+	/**
+	 * @return  set of elements (chars array) which represents current state of  Berlin Clock object
+	 */
 	public char[][] getLampsColor() {
 		return dial;
 	}
-
+	
+	
+	/**
+	 * Prints time in the format of Berlin Clock
+	 * 
+	 * Example:
+     *  Y
+     *  OOOO
+     *  OOOO
+     *  OOOOOOOOOOO
+     *  OOOO
+	 */
 	public void printTime() {
 		System.out.println(toString());
 	}
+	
 	
 	@Override
 	public String toString() {

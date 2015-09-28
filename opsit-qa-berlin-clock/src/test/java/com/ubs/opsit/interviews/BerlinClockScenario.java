@@ -2,7 +2,7 @@ package com.ubs.opsit.interviews;
 
 import org.junit.Test;
 
-import steps.BerlinClockSteps;
+import com.ubs.opsit.interviews.steps.BerlinClockSteps;
 
 import static com.ubs.opsit.interviews.support.BehaviouralTestEmbedder.aBehaviouralTestRunner;
 
